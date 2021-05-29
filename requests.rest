@@ -1,0 +1,8 @@
+@host = {{$dotenv HOSTNAME}}:{{$dotenv PORT}}
+@baseUrl = http://{{host}}
+
+@word = quixotic
+
+# @name search
+GET {{baseUrl}}/lemmas
+?word={{word}}
