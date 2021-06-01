@@ -2,7 +2,7 @@
 ![dependencies](https://img.shields.io/david/bryansouza/redis-project)
 ![typescript](https://img.shields.io/github/languages/top/bryansouza/redis-project)
 
-Simple API using Redis and consuming the Oxford Dictionaries API.
+Simple API that uses Redis as cache. Besides, this project consumes the Oxford Dictionaries API.
 
 ## Usage
 ### 1. Environment variables
