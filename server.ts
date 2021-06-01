@@ -18,10 +18,7 @@ const headers = {
     "app_key": APP_KEY
 };
 
-const client = redis.createClient({
-    host: "127.0.0.1",
-    port: 6379
-});
+const client = redis.createClient(6379);
 
 const GET_ASYNC = promisify(client.get).bind(client);
 const SET_ASYNC = promisify(client.set).bind(client);
@@ -33,19 +30,19 @@ app.get("/lemmas", async (req, res) => {
 
     const wordId = (req.query.word as string).toLowerCase();
 
+    const reply = await GET_ASYNC(`lemmas/${wordId}`);
+        
+    if(reply) {
+        res.status(200).json(JSON.parse(reply));
+        return;
+    }
+
     await axios.get(`${BASE_URL}/lemmas/${LANGUAGE_CODE}/${wordId}`, {
         headers
     })
     .then(response => response.data)
     .then( async (data) => {
-        const reply = await GET_ASYNC("lemmas");
-        
-        if(reply) {
-            res.status(200).json(JSON.parse(reply));
-            return;
-        }
-
-        await SET_ASYNC("lemmas", JSON.stringify(data))
+        await SET_ASYNC(`lemmas/${wordId}`, JSON.stringify(data))
         .then((result) => {
             console.log("data cached!", result);
         }).catch((error) => console.log("error: ", error));

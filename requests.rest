@@ -1,7 +1,7 @@
-@host = {{$dotenv HOSTNAME}}:{{$dotenv PORT}}
+@host = {{$dotenv HOSTNAME}}
 @baseUrl = http://{{host}}
 
-@word = quixotic
+@word = practical
 
 # @name search
 GET {{baseUrl}}/lemmas

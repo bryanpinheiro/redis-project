@@ -1,0 +1,12 @@
+# git
+.gitignore
+.git
+README.md
+LICENSE
+
+# docker
+Dockerfile
+.dockerignore
+
+# node
+node_modules
