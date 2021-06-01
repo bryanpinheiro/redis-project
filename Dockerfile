@@ -7,7 +7,7 @@ EXPOSE 3000
 # Create the app folder and set it as workdir
 WORKDIR /usr/src/app
 
-# Copy the files that contains the project's dependencies
+# Copy the files that contain the project's dependencies
 COPY package.json package.json
 COPY yarn.lock yarn.lock
 
