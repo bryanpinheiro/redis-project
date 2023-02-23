@@ -1,5 +1,5 @@
 # Use node offical image with alpine
-FROM node:14.17.0-alpine
+FROM node:14.21.3-alpine
 
 # EXPOSE PORT OF BRIDGE NETWORK
 EXPOSE 3000
